@@ -1,7 +1,8 @@
 <div class='pull-right' style='padding: 5px 5px 5px 0px;'>
-  <%= link_to 'index', categories_path(), role: 'button', class: 'btn btn-primary btn-sm' %>
-  <%= link_to 'Edit', edit_category_path(@category), role: 'button', class: 'btn btn-info btn-sm' %>
-  <%= link_to 'delete', category_path(@category), role: 'button', class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to '根目錄', categories_path(), role: 'button', class: 'btn btn-primary btn-sm' %>
+  <%= link_to_parent_path @category, role: 'button', class: 'btn btn-success btn-sm' %>
+  <%= link_to '編輯', edit_category_path(@category), role: 'button', class: 'btn btn-info btn-sm' %>
+  <%= link_to '刪除', category_path(@category), role: 'button', class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <div class="panel panel-info">
   <div class="panel-heading">

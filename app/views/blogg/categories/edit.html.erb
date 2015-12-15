@@ -1,0 +1,17 @@
+<h1>Editing Category</h1>
+<div class="pull-right" role="group" aria-label="">
+  <%= link_to 'Cancel', categories_path, role: 'button', class: 'btn btn-default' %>
+</div><br>
+
+<%= simple_form_for(@category ,url: category_path(@category) ) do |f| %>
+  <div class="form-group">
+    <%= f.input :name, class: 'form-control', placeholder: "目錄名稱", id: "InputName" %>
+  </div>
+  <div class="form-group">
+    <%# render_category_cover(@category) %>
+    <%# render_category_cover_uploader(@category, f) %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, "送出", class: 'btn btn-primary', data: { disable_with: "..." } %>
+  </div>
+<% end %>

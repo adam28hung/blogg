@@ -1,0 +1,9 @@
+<tr>
+  <td>
+    <%= link_to category.name, category_path(category) %>
+  </td>
+  <td>
+    <%= link_to 'Edit', edit_category_path(category), role: 'button', class: 'btn btn-info', data: { no_turbolink: true } %>
+    <%= link_to 'delete', category_path(category), role: 'button', class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

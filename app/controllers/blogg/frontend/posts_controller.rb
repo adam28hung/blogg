@@ -12,6 +12,7 @@ module Blogg
     # GET /posts/1
     # GET /posts/1.json
     def show
+      set_meta_tags title: @post.title
     end
 
     private

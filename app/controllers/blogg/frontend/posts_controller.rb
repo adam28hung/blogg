@@ -1,0 +1,23 @@
+module Blogg
+  class Frontend::PostsController < FrontendController
+    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    # layout 'administration'
+
+    # GET /posts
+    # GET /posts.json
+    def index
+      @posts = Post.all
+    end
+
+    # GET /posts/1
+    # GET /posts/1.json
+    def show
+    end
+
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_post
+        @post = Post.find(params[:id])
+      end
+  end
+end

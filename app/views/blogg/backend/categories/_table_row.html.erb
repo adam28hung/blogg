@@ -1,0 +1,9 @@
+<tr>
+  <td>
+    <%= link_to category.name, backend_category_path(category) %>
+  </td>
+  <td class='text-center'>
+    <%= link_to '編輯', edit_backend_category_path(category), role: 'button', class: 'btn btn-info', data: { no_turbolink: true } %>
+    <%= link_to '刪除', backend_category_path(category), role: 'button', class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

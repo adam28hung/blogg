@@ -1,0 +1,16 @@
+<!-- <h2 class="sub-header">Section title</h2> -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width='20%'>名稱</th>
+        <th width='30%'>描述</th>
+        <th width='30%'>分類</th>
+        <th width='20%' class='text-center'>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'table_row', collection: @posts, as: :post %>
+    </tbody>
+  </table>
+</div>

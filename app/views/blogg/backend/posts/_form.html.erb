@@ -1,0 +1,52 @@
+<%= simple_form_for([:backend, @post]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :draft %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.association :categories, collection: nested_hierarchy_for_select(Blogg::Category.hash_tree) %>
+  </div>
+
+  <div class="form-inputs">
+    <i class="fa fa-tags"></i><%= f.label "Tags:" %>
+    <%= f.input :topic_list, collection: collection_for_select2(article: @post, tag_context: 'topic'), input_html: { multiple: true} %>
+  </div>
+
+  <%= f.simple_fields_for :article do |ff| %>
+
+    <div class="form-inputs">
+      <%= ff.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Pure'} } %>
+    </div>
+  <% end %>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary', data: { disable_with: "..." } %>
+  </div>
+<% end %>
+
+<%= content_for :js_bottom do %>
+  <%= javascript_include_tag 'ckeditor', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'select2tag', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'select2tag', media: 'all', 'data-turbolinks-track' => true %>
+
+  <script>
+  $(document).ready(function() {
+    $( "#post_topic_list" ).select2({
+      tags: true,
+      theme: 'bootstrap',
+      // dataType: 'json',
+      // data: <%# tag_option_data article: @announcement, tag_context: 'topic' %>
+    });
+  });
+  </script>
+<% end %>

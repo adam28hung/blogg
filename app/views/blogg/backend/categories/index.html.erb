@@ -1,0 +1,5 @@
+<%= current_administrator.email %>
+<br>
+<%= link_to '新增', new_backend_category_path(@category), class: 'btn btn-info pull-right', data: { no_turbolink: true } %>
+<%= render_category_table @categories %>
+<hr>

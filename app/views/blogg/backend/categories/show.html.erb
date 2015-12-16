@@ -1,0 +1,35 @@
+<div class='pull-right' style='padding: 5px 5px 5px 0px;'>
+  <%= link_to '根目錄', backend_categories_path(), role: 'button', class: 'btn btn-primary btn-sm' %>
+  <%= link_to_parent_path @category, role: 'button', class: 'btn btn-success btn-sm' %>
+  <%= link_to '編輯', edit_backend_category_path(@category), role: 'button', class: 'btn btn-info btn-sm' %>
+  <%= link_to '刪除', backend_category_path(@category), role: 'button', class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @category.name %></h3>
+  </div>
+  <div class="panel-body">
+    <%# render_category_cover(@category) %>
+    <%= render_category_table(@category.children, title: '子目錄') %>
+  </div>
+</div>
+
+<hr>
+新增子目錄<br>
+<%= simple_form_for([:backend, @sub_category]) do |f| %>
+  <div class="form-group">
+    <%= f.input :name, class: 'form-control', placeholder: "目錄名稱", label: false %>
+    <%= f.input :parent_id, as: :hidden %>
+  </div>
+  <div class="form-group">
+    <div class="form-group">
+      <%# f.simple_fields_for :cover do |attach| %>
+       <%# attach.input :attachment, as: :file, class: 'file' %>
+      <%# end%>
+      <%# file_field_tag :attachment , class: 'file' %>
+    </div>
+  </div>
+
+  <%= f.button :submit, "送出", class: "btn btn-primary" %>
+<% end %>
+<hr>

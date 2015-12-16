@@ -1,0 +1,21 @@
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @post.title %></h3>
+    Description: <%= @post.description %><br>
+    <%= render_my_category article: @post %>
+  </div>
+  <div class="panel-body">
+    <%# render_tag_list article: @post, tag_context: 'topic' %>
+    <div class="pull-right">
+      <%= link_to '編輯', edit_backend_post_path(@post), role: 'button', class: 'btn btn-info', data: { no_turbolink: true } %>
+      <%= link_to '返回列表', backend_posts_path, role: 'button', class: 'btn  btn-default' %>
+      <%= link_to '刪除', backend_posts_path, role: 'button', class: 'btn  btn-danger' %>
+    </div>
+
+
+    <%= @post.article.content.html_safe %>
+  </div>
+</div>
+
+<hr>

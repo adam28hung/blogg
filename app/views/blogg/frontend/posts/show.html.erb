@@ -1,0 +1,33 @@
+<%= render_post_header(@post) %>
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <%= @post.article.content.html_safe %>
+
+        <!-- Pager -->
+        <ul class="pager">
+          <li class="previous">
+            <%= link_to blogg.post_path(@post.previous) do %>
+              <i class="fa fa-arrow-left"></i> 上一頁
+            <% end %>
+          </li>
+          <li>
+            <%= link_to blogg.posts_path do %>
+              <i class="fa fa-list"></i> 返回列表
+            <% end %>
+          </li>
+          <li class="next">
+            <%= link_to blogg.post_path(@post.next) do %>
+              下一頁 <i class="fa fa-arrow-right"></i>
+            <% end %>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>

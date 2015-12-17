@@ -1,6 +1,6 @@
 module Blogg
   class FrontendController < ApplicationController
-    layout 'application'
+    layout 'application' # use host layout
 
     # Can search for named routes directly in the main app, omitting
     # the "main_app." prefix

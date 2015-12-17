@@ -6,7 +6,7 @@ module Blogg
     # GET /posts
     # GET /posts.json
     def index
-      @posts = Post.all
+      @posts = Post.all.page params[:page]
     end
 
     # GET /posts/1
@@ -46,7 +46,7 @@ module Blogg
     def update
       respond_to do |format|
         if @post.update(post_params)
-          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+          format.html { redirect_to [:backend, @post], notice: 'Post was successfully updated.' }
           format.json { render :show, status: :ok, location: @post }
         else
           format.html { render :edit }

@@ -1,5 +1,6 @@
 module Blogg
   module Frontend::PostsHelper
+    include Frontend::ArticlesHelper
 
     def render_post_header(post, options={})
       if post.present?
@@ -11,6 +12,7 @@ module Blogg
         "invalid"
       end
     end
+
 
   end
 end

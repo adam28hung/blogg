@@ -9,7 +9,12 @@ Blogg::Engine.routes.draw do
 
   scope module: 'frontend' do
     root to: "posts#index"
-    resources :posts
+    resources :posts do
+      collection do
+        get 'tags/:tag', to: 'posts#tag', as: :tag
+      end
+    end
+    resources :categories
   end
 
 end

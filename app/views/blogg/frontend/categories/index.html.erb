@@ -18,13 +18,8 @@
 <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-8">
-
-        <%= render partial: 'blogg/frontend/posts/preview_block', collection: @posts, as: :post %>
-
-        <%= paginate @posts %>
-        <br>
+        <%= render partial: 'blogg/frontend/categories/by_category', collection: @categories, as: :category %>
       </div>
-
       <!-- Blog Sidebar Widgets Column -->
       <div class="col-lg-4 col-md-4">
           <%= render partial: 'blogg/frontend/common/search_block' %>
@@ -32,15 +27,10 @@
           <%= render partial: 'blogg/frontend/common/categories_tree' %>
 
           <!-- Side Widget Well -->
-          <div class="well">
-              <h4>Tags</h4>
-              <p>
-                <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                  <%= link_to tag.name, blogg.tag_posts_path(tag.name), class: css_class %>
-                <% end %>
-              </p>
-          </div>
+          <!-- <div class="well">
+              <h4>Side Widget Well</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+          </div> -->
       </div>
-
     </div>
 </div>

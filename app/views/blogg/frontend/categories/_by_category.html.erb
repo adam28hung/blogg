@@ -1,5 +1,6 @@
 <div class="post-preview">
-
+  <h3><%= link_to category.name, blogg.category_path(category) %></h3>
+  <% category.posts.each do | post | %>
     <%= link_to blogg.post_path(post) do %>
       <h2 class="post-title">
           <%= post.title %>
@@ -8,11 +9,9 @@
       <h3 class="post-subtitle">
           <%=  truncate(post.description, length: 50, omission: "...") %>
       </h3>
+
+      <p class="post-meta"> <%= "Posted on #{post.created_at.strftime(%Q(%d %b, %Y))}" %></p>
     <% end %>
-    <p class="post-meta"><%= "Posted on #{post.created_at.strftime(%Q(%d %b, %Y))}" %></p>
-
-
-
-
+  <% end %>
+  <hr>
 </div>
-<hr>

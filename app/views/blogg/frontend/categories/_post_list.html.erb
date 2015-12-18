@@ -9,10 +9,7 @@
           <%=  truncate(post.description, length: 50, omission: "...") %>
       </h3>
     <% end %>
-    <p class="post-meta"><%= "Posted on #{post.created_at.strftime(%Q(%d %b, %Y))}" %></p>
-
-
-
+    <p class="post-meta"> <%= "Posted on #{post.created_at.strftime(%Q(%d %b, %Y))}" %></p>
 
 </div>
 <hr>

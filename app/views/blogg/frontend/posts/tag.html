@@ -35,8 +35,11 @@
           <div class="well">
               <h4>Tags</h4>
               <p>
-                <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                  <%= link_to tag.name, blogg.tag_posts_path(tag.name), class: css_class %>
+                <%# tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+                  <%# link_to tag.name, tag_posts_path(tag.name) , :class => css_class %>
+                <%# end %>
+                <% @tags.each do |tag| %>
+                  <%= link_to tag.name, blogg.tag_posts_path(tag.name) %>
                 <% end %>
               </p>
           </div>

@@ -4,6 +4,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="pull-right">
+            <%= render_tag_links article: @post, tag_context: 'topic' %>
+        </div>
+
+      </div>
+
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <%= @post.article.content.html_safe %>
 
         <!-- Pager -->

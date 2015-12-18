@@ -28,10 +28,7 @@ module Blogg
     end
 
     private
-    # ck upload
-    # sending email
-    # my own uploader
-    # sidekiq
+
     def previous_posts(options={})
       Post.where("#{options[:order_by_column]} < ?", self.send(options[:column])).last(options[:shift]) #|| Post.first
     end

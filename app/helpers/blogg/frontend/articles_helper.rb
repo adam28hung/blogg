@@ -15,7 +15,7 @@ module Blogg
 
     def render_tag_links(args={})
       article = args[:article]
-      tag_context = "#{args[:tag_context]}s".to_sym # which tag_list: "#{topic}_list"
+      tag_context = "#{args[:tag_context]}s".to_sym 
       tag_list = article.send tag_context
 
       tag_links = '<i class="fa fa-tags"></i>'

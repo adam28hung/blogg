@@ -24,14 +24,8 @@
       <!-- Blog Sidebar Widgets Column -->
       <div class="col-lg-4 col-md-4">
           <%= render partial: 'blogg/frontend/common/search_block' %>
-
-          <%= render partial: 'blogg/frontend/common/categories_tree' %>
-
-          <!-- Side Widget Well -->
-          <!-- <div class="well">
-              <h4>Side Widget Well</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-          </div> -->
+          <%= render partial: 'blogg/frontend/common/categories_tree', locals: { tree: @categories_tree } %>
+          <%= render partial: 'blogg/frontend/common/tag', locals: { tags: @tags } %>
       </div>
     </div>
 </div>

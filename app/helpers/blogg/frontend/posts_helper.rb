@@ -1,7 +1,7 @@
 module Blogg
   module Frontend::PostsHelper
     include Frontend::ArticlesHelper
-
+    
     def render_post_header(post, options={})
       if post.present?
         h1_title = options[:main_title] || post.title
@@ -12,7 +12,6 @@ module Blogg
         "invalid"
       end
     end
-
 
   end
 end

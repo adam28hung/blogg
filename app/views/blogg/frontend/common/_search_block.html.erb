@@ -1,13 +1,15 @@
 <!-- Blog Search Well -->
 <div class="well">
     <h4>Blog Search</h4>
-    <div class="input-group">
-        <input type="text" class="form-control">
+    <%= search_form_for @q, url: blogg.search_posts_path, html: { method: :post } do |f| %>
+      <div class="input-group">
+        <%= f.search_field :title_or_description_cont, class: "form-control" %>
         <span class="input-group-btn">
-            <button class="btn btn-default" type="button" style="padding: 6px 12px;border-radius: 0px 4px 4px 0px;">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
+          <%= button_tag class: 'btn btn-default', style: 'padding: 6px 12px;border-radius: 0px 4px 4px 0px;' do %>
+            <span class="glyphicon glyphicon-search"></span>
+          <% end %>
         </span>
-    </div>
-    <!-- /.input-group -->
+      </div>
+      <!-- /.input-group -->
+    <% end %>
 </div>

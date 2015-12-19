@@ -1,5 +1,4 @@
 <div class="post-preview">
-
     <%= link_to blogg.post_path(post) do %>
       <h2 class="post-title">
           <%= post.title %>
@@ -10,9 +9,5 @@
       </h3>
     <% end %>
     <p class="post-meta"><%= "Posted on #{post.created_at.strftime(%Q(%d %b, %Y))}" %></p>
-
-
-
-
 </div>
 <hr>

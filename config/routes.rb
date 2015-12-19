@@ -12,6 +12,7 @@ Blogg::Engine.routes.draw do
     resources :posts do
       collection do
         get 'tags/:tag', to: 'posts#tag', as: :tag
+        match 'search', to: 'posts#search', as: :search, via: [:get, :post]
       end
     end
     resources :categories

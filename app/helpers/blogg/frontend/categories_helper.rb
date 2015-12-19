@@ -1,9 +1,8 @@
 module Blogg
   module Frontend::CategoriesHelper
 
-    def render_categories_tree
-      tree = Category.hash_tree
-
+    def render_categories_tree(tree)
+      p tree.length
       content_tag :div, class: 'col-lg-12' do
         content_tag(:ul, :class => 'list-unstyled') do
           walk_tree(tree)

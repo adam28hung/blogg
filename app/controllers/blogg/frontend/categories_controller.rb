@@ -1,14 +1,13 @@
 module Blogg
   class Frontend::CategoriesController < FrontendController
     before_action :set_category, only: [:show]
+    before_action :set_tagging ,:set_category_tree #, only: [:index]
+    before_action :set_search_object
+
     layout 'blogg/blog'
 
-    # here to start
     def index
-      #work
-      # @categories = Category.includes(:posts).roots.uniq
       @categories = Category.includes(:categorizations,:posts).roots
-      # .group('blogg_categories_id').having('count(blogg_posts_id) > 1')
     end
 
     def show
@@ -23,6 +22,18 @@ module Blogg
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
+    end
+
+    def set_tagging
+      @tags = Post.tag_counts_on(:topics).order(taggings_count: :desc).limit(10)
+    end
+
+    def set_category_tree
+      @categories_tree = Category.hash_tree(limit_depth: 1)
+    end
+
+    def set_search_object
+      @q = Post.ransack(params[:q])
     end
 
   end
